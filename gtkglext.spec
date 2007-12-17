@@ -16,7 +16,6 @@ License:	LGPL
 Group:		System/Libraries
 Source0:	http://prdownloads.sourceforge.net/gtkglext/%{name}-%{version}.tar.bz2
 Patch0:		gtkglext-support-pango.diff
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://gtkglext.sourceforge.net/
 BuildRequires:	pkgconfig
 BuildRequires:	MesaGLU-devel
