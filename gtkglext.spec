@@ -8,7 +8,7 @@
 %define	libname %mklibname %{name}-%{api_version}_ %{major}
 %define	libnamedev %mklibname %{name}-%{api_version}_ %{major} -d
 
-Summary:	GtkGLExt is an OpenGL extension to GTK 2.0 or later
+Summary:	OpenGL extension to GTK 2.0 or later
 Name:		%{name}
 Version:	%{version}
 Release: 	%{release}
@@ -33,7 +33,7 @@ As opposed to Jane Loff's GtkGLArea , it does not provide any OpenGL widget,
 but an interface to use OpenGL on *ANY* GTK+ widget. 
 
 %package -n	%{libname}
-Summary:	GtkGLExt is an OpenGL extension to GTK 2.0 or later
+Summary:	OpenGL extension to GTK 2.0 or later
 Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
 Obsoletes:	%{name}
@@ -46,7 +46,7 @@ As opposed to Jane Loff's GtkGLArea , it does not provide any OpenGL widget,
 but an interface to use OpenGL on *ANY* GTK+ widget. 
 
 %package -n	%{libnamedev}
-Summary:	GtkGLExt is an OpenGL extension to GTK 2.0 or later
+Summary:	OpenGL extension to GTK 2.0 or later
 Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
