@@ -1,6 +1,6 @@
 %define	name	gtkglext
 %define	version	1.2.0
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 
 %define	major	0
 %define	api_version 1.0
