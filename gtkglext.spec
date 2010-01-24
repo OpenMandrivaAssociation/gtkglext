@@ -1,6 +1,6 @@
 %define	name	gtkglext
 %define	version	1.2.0
-%define	release	%mkrel 6
+%define	release	%mkrel 7
 
 %define	major	0
 %define	api_version 1.0
@@ -16,6 +16,7 @@ License:	LGPL
 Group:		System/Libraries
 Source0:	http://prdownloads.sourceforge.net/gtkglext/%{name}-%{version}.tar.bz2
 Patch0:		gtkglext-support-pango.diff
+Patch1:		gtkglext-1.2.0-newer-gtk.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://gtkglext.sourceforge.net/
 BuildRequires:	pkgconfig
@@ -59,20 +60,17 @@ Libraries and includes files you can use for GtkGLExt development.
 
 %prep
 %setup -q
-%patch0
+%patch0 -p0
+%patch1 -p0 -b .gtk
 
 %build
-libtoolize --copy --force
-aclocal
-autoconf
-automake
+autoreconf -fi
 %configure2_5x
 %make
 
 %install
 rm -rf %{buildroot}
-%makeinstall
-chrpath -d $RPM_BUILD_ROOT%{_libdir}/libg?kglext-x11-1.0.so*
+%makeinstall_std
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
