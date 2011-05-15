@@ -1,12 +1,12 @@
 %define	name	gtkglext
 %define	version	1.2.0
-%define	release	%mkrel 10
+%define	release	%mkrel 11
 
 %define	major	0
 %define	api_version 1.0
 
-%define	libname %mklibname %{name}-%{api_version}_ %{major}
-%define	libnamedev %mklibname %{name}-%{api_version}_ %{major} -d
+%define	libname %mklibname %{name} %{api_version} %{major}
+%define	libnamedev %mklibname %{name} -d
 
 Summary:	OpenGL extension to GTK 2.0 or later
 Name:		%{name}
@@ -37,7 +37,7 @@ but an interface to use OpenGL on *ANY* GTK+ widget.
 Summary:	OpenGL extension to GTK 2.0 or later
 Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
-Obsoletes:	%{name}
+Obsoletes:	%{_lib}gtkglext-1.0_0 < %{version}-%{release}
 
 %description -n	%{libname}
 GtkGLExt is an OpenGL extension to GTK 2.0 or later.
@@ -53,7 +53,7 @@ Requires:	%{libname} = %{version}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release} 
-Obsoletes:	%{name}-devel
+Obsoletes:	%{_lib}gtkglext-1.0_0-devel < %{version}-%{release}
 
 %description -n %{libnamedev}
 Libraries and includes files you can use for GtkGLExt development.
@@ -61,7 +61,7 @@ Libraries and includes files you can use for GtkGLExt development.
 %prep
 %setup -q
 %patch0 -p0
-%patch1 -p0 -b .gtk
+%patch1 -p1 -b .gtk
 
 %build
 autoreconf -fi
