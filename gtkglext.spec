@@ -18,8 +18,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	gtk2-devel
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
-BuildRequires:	pango-devel
-BuildRequires:	pkgconfig(pangoxft)
+BuildRequires:	pkgconfig(pango)
+BuildRequires:	pkgconfig(pangox)
 BuildRequires:	chrpath
 
 %description
