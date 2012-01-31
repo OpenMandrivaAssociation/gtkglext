@@ -1,28 +1,23 @@
-%define	name	gtkglext
-%define	version	1.2.0
-%define	release	%mkrel 12
-
-%define	major	0
+%define	major 0
 %define	api_version 1.0
 
 %define	libname %mklibname %{name} %{api_version} %{major}
 %define	libnamedev %mklibname %{name} -d
 
 Summary:	OpenGL extension to GTK 2.0 or later
-Name:		%{name}
-Version:	%{version}
-Release: 	%{release}
+Name:		gtkglext
+Version:	1.2.0
+Release: 	13
 License:	LGPL
 Group:		System/Libraries
 Source0:	http://prdownloads.sourceforge.net/gtkglext/%{name}-%{version}.tar.bz2
 Patch0:		gtkglext-support-pango.diff
 Patch1:		gtkglext-1.2.0-newer-gtk.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://gtkglext.sourceforge.net/
 BuildRequires:	pkgconfig
-BuildRequires:	MesaGLU-devel
+BuildRequires:	pkgconfig(glu)
 BuildRequires:	gtk2-devel
-BuildRequires:	libgdk_pixbuf2.0-devel
+BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pango-devel
 BuildRequires:	chrpath
 
@@ -72,15 +67,8 @@ autoreconf -fi
 rm -rf %{buildroot}
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanups
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{libname}
 %defattr(-,root,root)
@@ -91,11 +79,7 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog TODO README
 %doc %{_datadir}/gtk-doc/html/gtkglext
 %{_libdir}/*.so
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_includedir}/*
 %{_libdir}/%{name}*
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/aclocal/*.m4
-
-
