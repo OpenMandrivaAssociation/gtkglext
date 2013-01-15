@@ -1,0 +1,20 @@
+--- gtkglext-1.2.0/configure.in.bero	2013-01-15 22:41:43.532454443 +0100
++++ gtkglext-1.2.0/configure.in	2013-01-15 22:41:47.811405228 +0100
+@@ -89,7 +89,7 @@ cflags_set=${CFLAGS+set}
+ AM_INIT_AUTOMAKE([1.7 no-define dist-bzip2 dist-zip])
+ 
+ # Specify a configuration file
+-AM_CONFIG_HEADER([config.h])
++AC_CONFIG_HEADERS([config.h])
+ 
+ dnl Initialize maintainer mode
+ AM_MAINTAINER_MODE
+@@ -201,7 +201,7 @@ AC_SUBST([gtkglext_targetlib])
+ AM_SANITY_CHECK
+ 
+ # Checks for programs.
+-AM_PROG_CC_STDC
++AC_PROG_CC
+ AC_PROG_INSTALL
+ AC_PROG_MAKE_SET
+ AC_PROG_LN_S

@@ -17,7 +17,7 @@ Group:		System/Libraries
 Source0:	http://prdownloads.sourceforge.net/gtkglext/%{name}-%{version}.tar.bz2
 Patch0:		gtkglext-support-pango.diff
 Patch1:		gtkglext-1.2.0-newer-gtk.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Patch2:		gtkglext-automake-1.13.patch
 URL:		http://gtkglext.sourceforge.net/
 BuildRequires:	pkgconfig
 BuildRequires:	mesaglu-devel
@@ -63,6 +63,7 @@ Libraries and includes files you can use for GtkGLExt development.
 %setup -q
 %patch0 -p0
 %patch1 -p1 -b .gtk
+%patch2 -p1 -b .am113~
 
 %build
 autoreconf -fi
