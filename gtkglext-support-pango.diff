@@ -1,5 +1,5 @@
---- examples/Makefile.am	9 Sep 2003 09:50:04 -0000	1.39
-+++ examples/Makefile.am	12 Nov 2006 22:05:50 -0000
+--- ./examples/Makefile.am	9 Sep 2003 09:50:04 -0000	1.39
++++ ./examples/Makefile.am	12 Nov 2006 22:05:50 -0000
 @@ -57,6 +57,7 @@
  	coolwave2		\
  	template		\
@@ -20,8 +20,8 @@
  font_pangoft2_DEPENDENCIES = $(DEPS)
  font_pangoft2_LDADD = $(LDADDS_WITH_PANGOFT2)
 
---- gdk/gdkglpixmap.c	20 Feb 2004 09:38:12 -0000	1.38
-+++ gdk/gdkglpixmap.c	12 Nov 2006 22:05:50 -0000
+--- ./gdk/gdkglpixmap.c	20 Feb 2004 09:38:12 -0000	1.38
++++ ./gdk/gdkglpixmap.c	12 Nov 2006 22:05:50 -0000
 @@ -104,7 +104,7 @@
                                                            GdkColormap *cmap);
  static GdkColormap *gdk_gl_pixmap_get_colormap           (GdkDrawable *drawable);
@@ -190,8 +190,8 @@
  void
  _gdk_gl_pixmap_get_size (GdkGLDrawable *gldrawable,
 
---- gdk/gdkglwindow.c	20 Feb 2004 09:38:12 -0000	1.46
-+++ gdk/gdkglwindow.c	12 Nov 2006 22:05:50 -0000
+--- ./gdk/gdkglwindow.c	20 Feb 2004 09:38:12 -0000	1.46
++++ ./gdk/gdkglwindow.c	12 Nov 2006 22:05:50 -0000
 @@ -104,7 +104,7 @@
                                                            GdkColormap *cmap);
  static GdkColormap *gdk_gl_window_get_colormap           (GdkDrawable *drawable);
