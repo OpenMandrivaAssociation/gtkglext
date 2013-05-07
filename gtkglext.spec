@@ -1,7 +1,8 @@
 %define	api	1.0
 %define	major	0
-%define	libname %mklibname gdkglext-x11 %{api} %{major}
-%define	devname %mklibname gdkglext-x11 -d
+%define	libname %mklibname gtkglext-x11 %{api} %{major}
+%define	libgdk	%mklibname gdkglext-x11 %{api} %{major}
+%define	devname %mklibname %{name} -d
 
 Summary:	OpenGL extension to GTK 2.0 or later
 Name:		gtkglext
@@ -33,7 +34,6 @@ Summary:	OpenGL extension to GTK 2.0 or later
 Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
 Obsoletes:	%{_lib}gtkglext-1.0_0 < %{version}-%{release}
-Obsoletes:	%{_lib}gtkglext1.0_0 < 1.2.0-16
 
 %description -n	%{libname}
 GtkGLExt is an OpenGL extension to GTK 2.0 or later.
@@ -42,13 +42,23 @@ and GtkWidget API add-ons to make GTK+ widgets OpenGL-capable.
 As opposed to Jane Loff's GtkGLArea , it does not provide any OpenGL widget,
 but an interface to use OpenGL on *ANY* GTK+ widget. 
 
+%package -n	%{libgdk}
+Summary:	OpenGL extension to GTK 2.0 or later
+Group:		System/Libraries
+Provides:	%{name} = %{version}-%{release}
+Conflicts:	%{_lib}gtkglext-1.0_0 < %{version}-%{release}
+Conflicts:	%{_lib}gtkglext1.0_0 < 1.2.0-16
+
+%description -n	%{libgdk}
+This package contains a shared library for %{name}.
+
 %package -n	%{devname}
 Summary:	OpenGL extension to GTK 2.0 or later
 Group:		Development/GNOME and GTK+
-Requires:	%{libname} = %{version}
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{libgdk} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release} 
 Obsoletes:	%{_lib}gtkglext-1.0_0-devel < %{version}-%{release}
-Obsoletes:	%{_lib}gtkglext-devel < 1.2.0-16
 
 %description -n %{devname}
 Libraries and includes files you can use for GtkGLExt development.
@@ -67,6 +77,9 @@ autoreconf -fi
 %makeinstall_std
 
 %files -n %{libname}
+%{_libdir}/libgtkglext-x11-%{api}.so.%{major}*
+
+%files -n %{libgdk}
 %{_libdir}/libgdkglext-x11-%{api}.so.%{major}*
 
 %files -n %{devname}
