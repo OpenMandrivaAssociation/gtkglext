@@ -7,7 +7,7 @@
 Summary:	OpenGL extension to GTK 2.0 or later
 Name:		gtkglext
 Version:	1.2.0
-Release: 	17
+Release: 	18
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://gtkglext.sourceforge.net/
