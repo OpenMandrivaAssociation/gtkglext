@@ -7,7 +7,7 @@
 Summary:	OpenGL extension to GTK 2.0 or later
 Name:		gtkglext
 Version:	1.2.0
-Release: 	24
+Release: 	25
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://gtkglext.sourceforge.net/
@@ -15,6 +15,7 @@ Source0:	http://prdownloads.sourceforge.net/gtkglext/%{name}-%{version}.tar.bz2
 Patch0:		gtkglext-support-pango.diff
 Patch1:		gtkglext-1.2.0-newer-gtk.patch
 Patch2:		gtkglext-automake-1.13.patch
+Patch3:		gtkglext-1.2.0-compile.patch
 
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(glu)
@@ -64,12 +65,11 @@ Obsoletes:	%{_lib}gtkglext-1.0_0-devel < %{version}-%{release}
 Libraries and includes files you can use for GtkGLExt development.
 
 %prep
-%setup -q
-%apply_patches
+%autosetup -p1
 autoreconf -fi
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 %make
 
