@@ -10,7 +10,7 @@ Version:	1.2.0
 Release: 	27
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://gtkglext.sourceforge.net/
+Url:		https://gtkglext.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/gtkglext/%{name}-%{version}.tar.bz2
 Patch0:		gtkglext-support-pango.diff
 Patch1:		gtkglext-1.2.0-newer-gtk.patch
