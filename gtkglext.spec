@@ -17,6 +17,11 @@ Patch1:		gtkglext-1.2.0-newer-gtk.patch
 Patch2:		gtkglext-automake-1.13.patch
 Patch3:		gtkglext-1.2.0-compile.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(glu)
 BuildRequires:	pkgconfig(gtk+-2.0)
